@@ -3,9 +3,9 @@ from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, Result
 
 async def main():
     async for message in query(
-        prompt="Create a README.md documenting the functions in utils.py",
+        prompt="Write unit tests for utils.py, run them, and fix any failures",
         options=ClaudeAgentOptions(
-            allowed_tools=["Read", "Edit", "Glob", "WebSearch"],
+            allowed_tools=["Read", "Edit", "Glob", "WebSearch", "bash"],
             permission_mode="acceptEdits",
             model="haiku",
             system_prompt="You are a senior Python developer. Always follow PEP 8 style guidelines.",
