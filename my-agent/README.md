@@ -89,6 +89,18 @@ Both functions use Python type hints for better code clarity and IDE support:
 - `Dict`: Dictionary type with string keys and any value type
 - `Any`: Any type from the `typing` module
 
+## Module Dependencies
+
+The module uses Python's standard library `typing` module for type annotations:
+
+- `List`: For type-hinting list parameters
+- `Union`: For accepting multiple types
+- `Optional`: For nullable parameters
+- `Dict`: For dictionary type hints
+- `Any`: For flexible value types
+
+No external dependencies are required.
+
 ## Import
 
 To use these functions, import them from the utils module:
@@ -101,4 +113,53 @@ Or import individual functions as needed:
 
 ```python
 from utils import calculate_average
+```
+
+## Usage Examples
+
+### Calculate Average Scores
+
+```python
+from utils import calculate_average
+
+test_scores = [85, 92, 78, 88, 95]
+average = calculate_average(test_scores)
+print(f"Average score: {average}")  # Output: Average score: 87.6
+```
+
+### Process User Information
+
+```python
+from utils import get_user_name
+
+user = {"name": "alice johnson", "email": "alice@example.com", "id": 123}
+display_name = get_user_name(user)
+print(f"User: {display_name}")  # Output: User: ALICE JOHNSON
+
+# Handle edge cases
+unknown_user = None
+admin_name = get_user_name(unknown_user)
+print(f"Admin: '{admin_name}'")  # Output: Admin: ''
+```
+
+### Combined Usage
+
+```python
+from utils import calculate_average, get_user_name
+
+# Process a group of users and their scores
+users_data = [
+    {"name": "john doe", "score": 85},
+    {"name": "jane smith", "score": 92},
+    {"name": "bob wilson", "score": 78}
+]
+
+scores = [user["score"] for user in users_data]
+avg_score = calculate_average(scores)
+
+print(f"Average class score: {avg_score}")
+
+for user in users_data:
+    name = get_user_name(user)
+    print(f"  - {name}")
 ```

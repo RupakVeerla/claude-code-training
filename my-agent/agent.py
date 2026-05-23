@@ -5,9 +5,10 @@ async def main():
     async for message in query(
         prompt="Create a README.md documenting the functions in utils.py",
         options=ClaudeAgentOptions(
-            allowed_tools=["Read", "Edit", "Glob"],
+            allowed_tools=["Read", "Edit", "Glob", "WebSearch"],
             permission_mode="acceptEdits",
-            model="haiku"
+            model="haiku",
+            system_prompt="You are a senior Python developer. Always follow PEP 8 style guidelines.",
         ),
     ):
         if isinstance(message, AssistantMessage):
