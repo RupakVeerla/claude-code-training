@@ -7,7 +7,7 @@ async def main():
         options=ClaudeAgentOptions(
             allowed_tools=["Read", "Edit", "Glob", "WebSearch", "bash"],
             permission_mode="acceptEdits",
-            model="haiku",
+            model="claude-haiku-4-5-20251001",
             system_prompt="You are a senior Python developer. Always follow PEP 8 style guidelines.",
         ),
     ):
